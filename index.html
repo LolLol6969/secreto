@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Blackjack</h1>
+
+        <div class="board">
+            <div class="hand">
+                <h2>Banco: <span id="dealer-score"></span></h2>
+                <div id="dealer-cards" class="cards-container"></div>
+            </div>
+
+            <div class="hand">
+                <h2>Tu: <span id="your-score"></span></h2>
+                <div id="your-cards" class="cards-container"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <p id="message"></p>
+            <button id="hit-btn">Pesca</button>
+            <button id="stand-btn">Stai</button>
+            <button id="reset-btn" style="display: none;">Gioca ancora</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
