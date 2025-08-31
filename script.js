@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let dealerHand = [];
     let playerHand = [];
     let isGameActive = false;
-    let dealerHiddenCard = null;
 
     // Crea un mazzo di carte
     function createDeck() {
@@ -62,9 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cardDiv.classList.add('card');
             if (isGameActive && index === 0 && dealerHand.length > 1) {
                 cardDiv.classList.add('hidden-card');
-                cardDiv.textContent = '?';
+                cardDiv.innerHTML = `?`;
             } else {
-                cardDiv.textContent = `${card.value}${card.suit}`;
+                const isRed = card.suit === '♥' || card.suit === '♦';
+                cardDiv.classList.add(isRed ? 'red' : 'black');
+                cardDiv.innerHTML = `<span class="card-value">${card.value}</span><span class="card-suit">${card.suit}</span>`;
             }
             dealerCardsDiv.appendChild(cardDiv);
         });
@@ -72,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         playerHand.forEach(card => {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
-            cardDiv.textContent = `${card.value}${card.suit}`;
+            const isRed = card.suit === '♥' || card.suit === '♦';
+            cardDiv.classList.add(isRed ? 'red' : 'black');
+            cardDiv.innerHTML = `<span class="card-value">${card.value}</span><span class="card-suit">${card.suit}</span>`;
             playerCardsDiv.appendChild(cardDiv);
         });
 
